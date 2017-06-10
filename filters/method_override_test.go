@@ -24,7 +24,7 @@ func dummyFilter2(c *revel.Controller, fc []revel.Filter) {
 	fc[0](c, fc[1:])
 }
 
-func Test_MethodOverrideFilterIsOverride(t *testing.T) {
+func TestMethodOverrideFilterIsOverride(t *testing.T) {
 	req := revel.NewRequest(httptest.NewRequest("POST", "http://localhost/", &bytes.Buffer{}))
 	req.Form = url.Values{}
 	req.Form.Add("_method", "DELETE")
@@ -47,7 +47,7 @@ func Test_MethodOverrideFilterIsOverride(t *testing.T) {
 	}
 }
 
-func Test_MethodOverrideFilterIsNotOverride(t *testing.T) {
+func TestMethodOverrideFilterIsNotOverride(t *testing.T) {
 	req := revel.NewRequest(httptest.NewRequest("PUT", "http://localhost/", &bytes.Buffer{}))
 	res := revel.NewResponse(httptest.NewRecorder())
 	ctlr := revel.NewController(req, res)
